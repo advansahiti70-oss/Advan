@@ -59,7 +59,7 @@
 /* Technologies with logos */
 .discipline__tiles {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 8.5rem), 1fr));
   gap: 0.5rem;
   margin-top: 0.75rem;
 }
@@ -136,7 +136,8 @@
   }
 
   .disciplines {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
     gap: 0;
   }
 

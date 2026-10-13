@@ -13,7 +13,7 @@ export const projects = [
     name: 'TwoMindsDev',
     url: 'https://twomindsdev.com/',
     displayUrl: 'twomindsdev.com',
-    categories: ['Web Development', 'Brand Website', 'UI/UX'],
+    categories: ['Web Development', 'Brand Website'],
     type: 'Web development brand',
     description:
       'TwoMindsDev is a web development brand focused on creating professional websites that help businesses strengthen their online presence and grow digitally.',
