@@ -11,11 +11,10 @@ export function Expertise() {
 
         <div className="expertise__intro">
           <h2 id="expertise-title" className="expertise__title" data-reveal>
-            Tools, craft <span className="accent-serif">&amp; curiosity.</span>
+            Tools <span className="accent-serif">&amp; curiosity.</span>
           </h2>
           <p className="expertise__summary" data-reveal>
-            The areas I work across — from the code that runs in the browser, to the experience around it, to the
-            intelligence behind it.
+            The areas I work across — from the code that runs in the browser to the intelligence behind it.
           </p>
         </div>
 

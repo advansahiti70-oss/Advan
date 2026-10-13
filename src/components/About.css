@@ -164,7 +164,6 @@
 
   .focus__list {
     grid-column: 4 / -1;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
     row-gap: 3rem;
   }
 

@@ -67,12 +67,6 @@ test.describe('content', () => {
       'CSS3',
       'JavaScript',
       'React',
-      'User interface design',
-      'User experience principles',
-      'Responsive design',
-      'Accessibility',
-      'Visual hierarchy',
-      'Component-based design',
       'AI-powered applications',
       'AI integration',
       'Intelligent digital experiences',
@@ -80,6 +74,7 @@ test.describe('content', () => {
       await expect(expertise.getByText(skill, { exact: true })).toHaveCount(1);
     }
     await expect(expertise).not.toContainText('%');
+    await expect(page.locator('body')).not.toContainText(/UI\s*\/\s*UX/i);
     await expect(expertise.locator('progress, [role="progressbar"], meter')).toHaveCount(0);
   });
 

@@ -18,19 +18,6 @@ export const expertise = [
     ],
   },
   {
-    id: 'ui-ux',
-    title: 'UI/UX Design',
-    summary: 'How an interface should look, read and behave for the person using it.',
-    items: [
-      { name: 'User interface design' },
-      { name: 'User experience principles' },
-      { name: 'Responsive design' },
-      { name: 'Accessibility' },
-      { name: 'Visual hierarchy' },
-      { name: 'Component-based design' },
-    ],
-  },
-  {
     id: 'ai',
     title: 'AI Development',
     summary: 'Exploring how AI can open new possibilities in everyday digital products.',
