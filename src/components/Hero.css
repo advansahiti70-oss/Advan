@@ -1,0 +1,314 @@
+/* ==========================================================================
+   Hero — a typographic focal point on an asymmetric 12-column grid
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  display: flex;
+  min-height: 100svh;
+  padding-top: calc(var(--nav-height) + clamp(1rem, 3.5vh, 2.5rem));
+  padding-bottom: clamp(1.5rem, 4vh, 2.5rem);
+}
+
+.hero__grid {
+  --col: calc((100% + var(--grid-gap)) / 12);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
+  row-gap: clamp(1.5rem, 4vh, 2.5rem);
+}
+
+/* Eyebrow + roles */
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  color: var(--text);
+}
+
+.hero__eyebrow-mark {
+  width: 1.75rem;
+  height: 1px;
+  background: var(--accent);
+}
+
+.hero__roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+}
+
+.hero__roles li::before {
+  content: '/ ';
+  color: var(--accent);
+}
+
+/* Headline */
+.hero__title {
+  font-size: clamp(3rem, 14vw, 7rem);
+  font-weight: 600;
+  line-height: 0.92;
+  letter-spacing: -0.032em;
+  text-wrap: initial;
+}
+
+.hero__line {
+  display: block;
+  overflow: hidden;
+  /* Room for descenders and the italic overhang, so the reveal mask never crops glyphs. */
+  padding: 0.04em 0.1em 0.12em;
+  margin: -0.04em -0.1em -0.12em;
+}
+
+.hero__line > span {
+  display: inline-block;
+}
+
+.hero__line--indent > span {
+  margin-left: 12%;
+}
+
+.hero__line--accent > span {
+  margin-left: 22%;
+  font-size: 1.14em;
+  line-height: 0.85;
+  color: var(--accent);
+}
+
+/* Intro */
+.hero__intro {
+  display: grid;
+  gap: 1.75rem;
+  max-width: 34rem;
+}
+
+.hero__lede {
+  font-size: var(--step-1);
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Figure */
+.hero__figure {
+  display: grid;
+  gap: 0.7rem;
+  max-width: 36rem;
+}
+
+.wavefield {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-s);
+  overflow: hidden;
+}
+
+.wavefield svg {
+  width: 100%;
+  height: 100%;
+}
+
+.wavefield__line {
+  fill: none;
+  stroke: var(--color-muted);
+  stroke-width: 1;
+  opacity: calc(0.16 + var(--depth) * 0.34);
+}
+
+.wavefield__line--accent {
+  stroke: var(--accent);
+  stroke-width: 1.6;
+  opacity: 1;
+}
+
+.wavefield__marker line {
+  stroke: var(--accent);
+  stroke-width: 1;
+  stroke-dasharray: 2 5;
+  opacity: 0.55;
+  vector-effect: non-scaling-stroke;
+}
+
+.wavefield__marker circle {
+  fill: var(--surface);
+  stroke: var(--accent);
+  stroke-width: 1.6;
+  vector-effect: non-scaling-stroke;
+}
+
+.hero__caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Footer row */
+.hero__scroll {
+  display: none;
+}
+
+.hero__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+}
+
+.hero__stack-key {
+  color: var(--accent);
+}
+
+/* --------------------------------------------------------------------------
+   Desktop composition
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 62em) {
+  .hero__grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: auto auto 1fr auto;
+    column-gap: var(--grid-gap);
+    row-gap: 0;
+  }
+
+  .hero__eyebrow {
+    grid-column: 1 / span 6;
+    grid-row: 1;
+    align-self: start;
+  }
+
+  .hero__roles {
+    grid-column: 10 / -1;
+    grid-row: 1;
+    flex-direction: column;
+  }
+
+  .hero__title {
+    font-size: var(--step-hero);
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-block: clamp(1.75rem, 4.5vh, 3.5rem) clamp(1.5rem, 3.5vh, 2.75rem);
+  }
+
+  .hero__line--indent > span {
+    margin-left: calc(var(--col) * 2);
+  }
+
+  .hero__line--accent > span {
+    margin-left: calc(var(--col) * 5);
+  }
+
+  .hero__figure {
+    grid-column: 1 / span 4;
+    grid-row: 3;
+    align-self: start;
+  }
+
+  .hero__intro {
+    grid-column: 7 / -1;
+    max-width: 38rem;
+    grid-row: 3;
+    align-self: start;
+  }
+
+  .hero__scroll {
+    grid-column: 1 / span 3;
+    grid-row: 4;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    justify-self: start;
+    margin-top: 2.5rem;
+    color: var(--text);
+    transition: color var(--dur-fast) var(--ease-out);
+  }
+
+  .hero__scroll:hover {
+    color: var(--accent);
+  }
+
+  .hero__scroll-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.6rem;
+    border: 1px solid var(--border-strong);
+    border-radius: 50%;
+    transition: border-color var(--dur-fast) var(--ease-out);
+  }
+
+  .hero__scroll:hover .hero__scroll-icon {
+    border-color: var(--accent);
+  }
+
+  .hero__stack {
+    grid-column: 7 / -1;
+    grid-row: 4;
+    align-self: end;
+    justify-self: end;
+    margin-top: 2.5rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Entrance motion
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero__line > span {
+    animation: hero-rise 1.15s var(--ease-out) both;
+    animation-delay: calc(140ms + var(--i) * 110ms);
+  }
+
+  .hero__eyebrow,
+  .hero__roles,
+  .hero__intro,
+  .hero__figure,
+  .hero__scroll,
+  .hero__stack {
+    animation: hero-fade 1s var(--ease-out) both;
+    animation-delay: 520ms;
+  }
+
+  .hero__eyebrow,
+  .hero__roles {
+    animation-delay: 60ms;
+  }
+
+  .hero__figure,
+  .hero__stack {
+    animation-delay: 680ms;
+  }
+
+  .hero__scroll-icon {
+    animation: scroll-bob 2.4s var(--ease-in-out) 1.6s infinite;
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    transform: translateY(108%);
+  }
+}
+
+@keyframes hero-fade {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+@keyframes scroll-bob {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(5px);
+  }
+}

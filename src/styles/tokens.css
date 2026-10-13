@@ -1,0 +1,65 @@
+/* ==========================================================================
+   Design tokens — Ocean & Coral
+   Change a palette value here and it updates across the whole site.
+   Contrast ratios are verified by `node scripts/contrast.mjs`.
+   ========================================================================== */
+
+:root {
+  /* Palette */
+  --color-ocean: #102b35; /* page background */
+  --color-deep: #1a3b46; /* panels and selected sections */
+  --color-coral: #ff8975; /* calls to action and highlights */
+  --color-text: #f1f7f5; /* headlines and primary text */
+  --color-muted: #a9c2c7; /* secondary text */
+  --color-line: #34515a; /* borders and dividers (decorative only) */
+
+  /* Semantic roles */
+  --bg: var(--color-ocean);
+  --surface: var(--color-deep);
+  --accent: var(--color-coral);
+  --text: var(--color-text);
+  --text-muted: var(--color-muted);
+  --border: var(--color-line);
+  --on-accent: var(--color-ocean); /* 6.4:1 on coral; white on coral fails */
+  /* Outlines of interactive controls need 3:1 on ocean and deep teal. */
+  --border-strong: color-mix(in srgb, var(--color-muted) 62%, var(--color-ocean));
+  --accent-wash: color-mix(in srgb, var(--color-coral) 12%, transparent);
+  --nav-glass: color-mix(in srgb, var(--color-ocean) 86%, transparent);
+
+  /* Typography */
+  --font-display: 'Bricolage Grotesque Variable', 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: 'Instrument Serif', 'Iowan Old Style', Georgia, serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  --step--2: 0.75rem;
+  --step--1: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --step-1: clamp(1.1875rem, 1.1rem + 0.45vw, 1.5rem);
+  --step-2: clamp(1.4rem, 1.2rem + 0.95vw, 2.125rem);
+  --step-3: clamp(1.9rem, 1.45rem + 2.2vw, 3.5rem);
+  --step-4: clamp(2.6rem, 1.6rem + 4.6vw, 6.25rem);
+  --step-hero: clamp(3rem, 0.9rem + 8.6vw, 10rem);
+
+  --tracking-tight: -0.035em;
+  --tracking-label: 0.14em;
+
+  /* Layout */
+  --max-width: 90rem;
+  --gutter: clamp(1rem, 4.2vw, 3.5rem);
+  --grid-gap: clamp(1rem, 2vw, 2rem);
+  --section-space: clamp(4.75rem, 11vw, 10.5rem);
+  --nav-height: 4.75rem;
+  --nav-height-compact: 3.75rem;
+
+  /* Shape — deliberately restrained */
+  --radius-s: 3px;
+  --radius: 8px;
+  --radius-pill: 999px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 180ms;
+  --dur: 420ms;
+  --dur-slow: 900ms;
+}
